@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "BricolageGrotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PlusJakartaSans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.625rem;
+
+    /* Brand colors - OKLCH */
+    /* Primary blue: #0B5CCB */
+    --primary: 0.44 0.19 258;
+    --primary-foreground: 1 0 0;
+    /* Dark navy: #0F1F2E */
+    --navy: 0.17 0.04 248;
+    /* Footer blue: #0A4FA6 */
+    --brand-footer: 0.39 0.17 258;
+    /* Hero bg: #EAF4FF */
+    --hero-bg: 0.96 0.02 248;
+
+    /* Semantic tokens */
+    --background: 1 0 0;
+    --foreground: 0.17 0.04 248;
+    --card: 1 0 0;
+    --card-foreground: 0.17 0.04 248;
+    --popover: 1 0 0;
+    --popover-foreground: 0.17 0.04 248;
+    --secondary: 0.96 0.01 248;
+    --secondary-foreground: 0.17 0.04 248;
+    --muted: 0.96 0.01 248;
+    --muted-foreground: 0.44 0.02 248;
+    --accent: 0.92 0.03 258;
+    --accent-foreground: 0.44 0.19 258;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 1 0 0;
+    --border: 0.92 0.01 248;
+    --input: 0.92 0.01 248;
+    --ring: 0.44 0.19 258;
+    --chart-1: 0.44 0.19 258;
+    --chart-2: 0.6 0.15 160;
+    --chart-3: 0.55 0.18 30;
+    --chart-4: 0.65 0.14 290;
+    --chart-5: 0.7 0.12 80;
+    --sidebar: 0.98 0 0;
+    --sidebar-foreground: 0.17 0.04 248;
+    --sidebar-primary: 0.44 0.19 258;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.96 0.02 248;
+    --sidebar-accent-foreground: 0.44 0.19 258;
+    --sidebar-border: 0.92 0.01 248;
+    --sidebar-ring: 0.44 0.19 258;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+}
+
+/* Custom keyframe animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 oklch(0.44 0.19 258 / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px 8px oklch(0.44 0.19 258 / 0.15);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease-out both;
+}
+
+.gallery-card:hover {
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+.shimmer-bg {
+  background: linear-gradient(
+    90deg,
+    oklch(0.94 0 0) 25%,
+    oklch(0.97 0 0) 50%,
+    oklch(0.94 0 0) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
